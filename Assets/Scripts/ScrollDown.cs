@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class ScrollDown : MonoBehaviour
 {
-    public float scrollSpeed;
+    protected float scrollSpeed;
     protected SpawnManager spawnManager;
     protected float minZ;
     // Start is called before the first frame update

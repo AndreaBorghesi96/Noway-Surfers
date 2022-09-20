@@ -46,9 +46,9 @@ public class SpawnManager : MonoBehaviour
     {
         while (!isGameOver)
         {
-            SpawnCoin();
-            SpawnPowerup();
-            SpawnObstacles();
+            SpawnCoin(); // ABSTRACTION
+            SpawnPowerup(); // ABSTRACTION
+            SpawnObstacles(); // ABSTRACTION
 
             yield return new WaitForSeconds(spawnRate);
         }
@@ -89,7 +89,7 @@ public class SpawnManager : MonoBehaviour
         spawnedObject.transform.position = PositionFromCoords(lastX, lastY);
         if(lastY > 0)
         {
-            spawnedObject.GetComponent<ScrollObject>().score *= 2;
+            spawnedObject.GetComponent<ScrollObject>().Score *= 2;
         }
     }
     private void SpawnPowerup()
@@ -151,10 +151,10 @@ public class SpawnManager : MonoBehaviour
     private void InitializePosList()
     {
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
-        xPosList = playerController.xPosList;
+        xPosList = playerController.XPosList;
         yPosList = new List<float>();
         yPosList.Add(0.5f);
         yPosList.Add(2.5f);
-        roads = playerController.roads;
+        roads = playerController.Roads;
     }
 }

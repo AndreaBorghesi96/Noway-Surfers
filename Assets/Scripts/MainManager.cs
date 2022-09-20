@@ -30,7 +30,7 @@ public class MainManager : MonoBehaviour
 
     public void GameOver()
     {
-        SaveScore();
+        SaveScore(); // ABSTRACTION
         SceneManager.LoadScene(0);
     }
 

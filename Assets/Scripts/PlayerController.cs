@@ -17,9 +17,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float speed = 0.25f;
     [SerializeField] private float jumpForce = 1;
     [SerializeField] private float poundForce = 1.5f;
-    public List<float> xPosList;
+    private List<float> xPosList;
+    public List<float> XPosList { // ENCAPSULATION
+        get => xPosList;
+    }
     [SerializeField] private float roadWidth = 2.5f;
-    public int roads = 3; //roads deve essere dispari
+    [SerializeField] private int roads = 3; // Must be odd
+    public int Roads {
+        get => roads;
+    }
     private float currentXPos;
     private int currentXPosIndex;
     private int endXPosIndex;
@@ -51,10 +57,10 @@ public class PlayerController : MonoBehaviour
     {
         if (!spawnManager.isGameOver)
         {
-            ManageInput();
+            ManageInput(); // ABSTRACTION
             if (isMoving != 0)
             {
-                ManageMovement();
+                ManageMovement(); // ABSTRACTION
             }
 
         }
@@ -132,7 +138,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("Coin"))
         {
-            int scoreToAdd = other.gameObject.GetComponent<ScrollObject>().score;
+            int scoreToAdd = other.gameObject.GetComponent<ScrollObject>().Score;
             Destroy(other.gameObject);
             AddScore(scoreToAdd);
         }

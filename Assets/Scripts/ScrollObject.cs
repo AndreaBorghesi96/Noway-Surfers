@@ -2,11 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScrollObject : ScrollDown
+public class ScrollObject : ScrollDown // INHERITANCE
 {
-    public int score = 0;
+    [SerializeField] private int score = 0;
+    public int Score // ENCAPSULATION
+    {
+        get => score; // get => score;
+        set {
+            score = value;
+        }
+    }
     // Start is called before the first frame update
-    protected override void Start()
+    protected override void Start() // POLYMORPHISM
     {
         base.Start();
         if(scrollSpeed == 0) {
@@ -15,7 +22,7 @@ public class ScrollObject : ScrollDown
         minZ = -20;
     }
 
-    public override void ManageOutOfBounds()
+    public override void ManageOutOfBounds() // POLYMORPHISM
     {
         Destroy(gameObject);
     }
