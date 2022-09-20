@@ -9,6 +9,9 @@ public class ScrollObject : ScrollDown
     protected override void Start()
     {
         base.Start();
+        if(scrollSpeed == 0) {
+            Destroy(gameObject);
+        }
         minZ = -20;
     }
 

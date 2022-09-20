@@ -11,6 +11,11 @@ public class ScrollRoad : ScrollDown
         minZ = 0;
     }
 
+    protected override void Update() {
+        scrollSpeed = spawnManager.currentSpeed;
+        base.Update();
+    }
+
     public override void ManageOutOfBounds()
     {
         transform.position = new Vector3(transform.position.x, transform.position.y, 40);
