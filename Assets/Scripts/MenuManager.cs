@@ -4,11 +4,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEditor;
 using System.IO;
-using TMPro;
+using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI highScoreText; 
+    [SerializeField] private Text highScoreText;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +18,14 @@ public class MenuManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.Return))
+        {
+            StartGame();
+        }
+        else if (Input.GetKeyUp(KeyCode.Escape))
+        {
+            QuitGame();
+        }
     }
 
     public void StartGame()
@@ -37,7 +44,7 @@ public class MenuManager : MonoBehaviour
 
     public void OpenSettings()
     {
-        
+
     }
     [System.Serializable]
     class SaveData
@@ -62,7 +69,7 @@ public class MenuManager : MonoBehaviour
         }
         else
         {
-                highScoreText.text = "High score: 0";            
+            highScoreText.text = "High score: 0";
         }
     }
 }

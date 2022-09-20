@@ -4,20 +4,18 @@ using UnityEngine;
 
 public abstract class ScrollDown : MonoBehaviour
 {
-    private float initialTime = 0;
     public float scrollSpeed;
-    private SpawnManager spawnManager;
+    protected SpawnManager spawnManager;
     protected float minZ;
     // Start is called before the first frame update
     protected virtual void Start()
     {
         spawnManager = GameObject.Find("Spawner").GetComponent<SpawnManager>();
         scrollSpeed = spawnManager.currentSpeed;
-        initialTime = Time.time;
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
         if (!spawnManager.isGameOver)
         {

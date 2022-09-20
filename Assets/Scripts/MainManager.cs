@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.IO;
-using TMPro;
+using UnityEngine.UI;
 
 public class MainManager : MonoBehaviour
 {
     private int score;
-    [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private Text scoreText;
     // Start is called before the first frame update
     void Start()
     {
@@ -63,7 +63,7 @@ public class MainManager : MonoBehaviour
         }
         else
         {
-            dataToSave.highScore = 0;
+            dataToSave.highScore = score;
         }
 
         string json = JsonUtility.ToJson(dataToSave);
